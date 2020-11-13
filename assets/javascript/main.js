@@ -42,6 +42,7 @@ resetButtonElement.addEventListener("click", function () {
 
   // to simulate a reset
   // lets just remove the whole page and then rebuild it
+  // got this idea from dom methods practice
   bodySectionElement.remove();
 
   // to recreate the page
