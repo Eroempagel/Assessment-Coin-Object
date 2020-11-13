@@ -4,12 +4,14 @@ let coin = {
     /* 1. Randomly set your coin object's "state" property to be either 
            0 or 1: use "this.state" to access the "state" property on this object.*/
     let rand = Math.floor(Math.random() * Number(10)) + 1;
+    //console.log(rand % 2);
     if (rand % 2 === 0) {
       return (this.state = 0);
     } else {
       return (this.state = 1);
     }
   },
+
   toString: function () {
     /* 2. Return the string "Heads" or "Tails", depending on whether
            "this.state" is 0 or 1. */
