@@ -53,7 +53,7 @@ function display20Flips() {
   // (make use of your toString() method)
   // make this outside the function
   for (let i = 1; i <= 20; i++) {
-    console.log(coin.flip());
+    coin.flip();
     console.log(coin.toString());
     let divElement = document.createElement("div");
     let flipText = document.createTextNode(i + ". " + coin.toString());
@@ -71,9 +71,12 @@ function display20Images() {
   // the result as a string, display the result of each flip as an
   // HTML IMG element on the page (make use of your toHTML() method).
   for (let j = 1; j <= 20; j++) {
-    console.log(coin.flip());
+    coin.flip();
     console.log(coin.toString());
-    document.body.append(coin.toHTML());
+    let divElement = document.createElement("div");
+    divElement.appendChild(coin.toHTML());
+    bodySectionElement = document.querySelector("body");
+    bodySectionElement.append(divElement);
   }
 }
 
