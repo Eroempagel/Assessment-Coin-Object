@@ -15,30 +15,32 @@ let coin = {
   toString: function () {
     /* 2. Return the string "Heads" or "Tails", depending on whether
            "this.state" is 0 or 1. */
-    let str = "";
     if (this.state === 0) {
-      return (str = "Heads");
+      return "Heads";
     } else if (this.state === 1) {
-      return (str = "Tails");
+      return "Tails";
     }
   },
   toHTML: function () {
     let image = document.createElement("img");
     /* 3. Set the properties of this image element to show either face-up
            or face-down, depending on whether this.state is 0 or 1.*/
+
     if (this.state === 0) {
       image.className = "image-one";
       //image.id = "image-one";
       image.src = "assets/images/quarter-heads-569x570.jpg";
       image.style.width = "90px";
-      image.style.height = "auto";
+      image.style.height = "90px";
+      image.alt = "quarter heads";
       return image;
     } else if (this.state === 1) {
       image.className = "image-two";
       //image.id = "image-two";
       image.src = "assets/images/quarter-tails-612x612.jpg";
       image.style.width = "100px";
-      image.style.height = "auto";
+      image.style.height = "100px";
+      image.alt = "quarter tails";
       return image;
     }
   },
@@ -62,8 +64,7 @@ function display20Flips() {
     bodySectionElement.append(divElement);
   }
 }
-bodySectionElement = document.querySelector("body");
-bodySectionElement.append(display20Flips());
+display20Flips();
 
 function display20Images() {
   // make this outside the function
@@ -79,6 +80,4 @@ function display20Images() {
     bodySectionElement.append(divElement);
   }
 }
-
-bodySectionElement = document.querySelector("body");
-bodySectionElement.append(display20Images());
+display20Images();
