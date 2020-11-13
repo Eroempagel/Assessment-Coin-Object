@@ -1,3 +1,62 @@
+/******************
+ * lets do sound? *
+ ******************/
+
+// sound of coin flipping
+let mySound1;
+mySound1 = new sound("assets/audio/CoinDrop.mp3");
+
+// sound handling function
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function () {
+    this.sound.play();
+  };
+  this.stop = function () {
+    this.sound.pause();
+  };
+}
+
+/*******************
+ *  Reset Button?  *
+ *******************/
+let resetButtonElement = document.createElement("button");
+resetButtonElement.className = "reset-button";
+resetButtonElement.id = "resetButton";
+resetButtonElement.style.marginBottom = "10px";
+resetButtonElement.append("Reset Button");
+bodySectionElement = document.querySelector("body");
+bodySectionElement.append(resetButtonElement);
+
+resetButtonElement.addEventListener("click", function () {
+  //  On click, reset the page.
+
+  // true reset
+  // location.reload();
+  // return false;
+
+  //to simulate a reset
+  bodySectionElement.remove();
+
+  //to recreate the page
+  bodySectionElement = document.createElement("body");
+  htmlSectionElement = document.querySelector("html");
+  htmlSectionElement.append(bodySectionElement);
+  bodySectionElement.append(resetButtonElement);
+  bodySectionElement.style.display = "flex";
+  bodySectionElement.style.justifyContent = "center";
+  bodySectionElement.style.alignItems = "center";
+  bodySectionElement.style.flexDirection = "column";
+  mySound1.play();
+  display20Flips();
+  display20Images();
+});
+
 let coin = {
   state: 0,
   flip: function () {
@@ -25,7 +84,6 @@ let coin = {
     let image = document.createElement("img");
     /* 3. Set the properties of this image element to show either face-up
            or face-down, depending on whether this.state is 0 or 1.*/
-
     if (this.state === 0) {
       image.className = "image-one";
       //image.id = "image-one";
