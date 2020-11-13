@@ -40,10 +40,11 @@ resetButtonElement.addEventListener("click", function () {
   // location.reload();
   // return false;
 
-  //to simulate a reset
+  // to simulate a reset
+  // lets just remove the whole page and then rebuild it
   bodySectionElement.remove();
 
-  //to recreate the page
+  // to recreate the page
   bodySectionElement = document.createElement("body");
   htmlSectionElement = document.querySelector("html");
   htmlSectionElement.append(bodySectionElement);
@@ -52,6 +53,7 @@ resetButtonElement.addEventListener("click", function () {
   bodySectionElement.style.justifyContent = "center";
   bodySectionElement.style.alignItems = "center";
   bodySectionElement.style.flexDirection = "column";
+  // sound effect just because
   mySound1.play();
   display20Flips();
   display20Images();
@@ -62,6 +64,9 @@ let coin = {
   flip: function () {
     /* 1. Randomly set your coin object's "state" property to be either 
            0 or 1: use "this.state" to access the "state" property on this object.*/
+    // let rand = Math.floor(Math.random() * Number(2)) + 0;  // even though this worked
+    // upped the number of randoms and added in modulus
+    // based on Chris' demo
     let rand = Math.floor(Math.random() * Number(10)) + 1;
     //console.log(rand % 2);
     if (rand % 2 === 0) {
